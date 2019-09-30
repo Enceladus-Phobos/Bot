@@ -58,6 +58,10 @@ public class SimpleBot extends TelegramLongPollingBot {
                             response = "Done!";
                         }
                     }
+                    break;
+                default:
+                    response = "Unknow command";
+                    break;
             }
 
             SendMessage message = (new SendMessage()).setChatId(chat_id).setText(response);
