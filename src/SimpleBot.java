@@ -1,68 +1,32 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
+import CommandExecuters.CommandExecuterFactory;
+import CommandExecuters.ICommandExecuter;
+import Models.InMemoryData;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class SimpleBot extends TelegramLongPollingBot {
-    private Map<Long, Double> _accounts = new HashMap();
 
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String message_text = update.getMessage().getText();
             long chat_id = update.getMessage().getChatId();
             String response = "";
-            String[] command = message_text.split(" ");
-            if (!_accounts.containsKey(chat_id)) {
-                _accounts.put(chat_id, 100.0D);
+
+            List<String> command = Arrays.asList(message_text.split(" "));
+            if (!InMemoryData.Accounts.containsKey(chat_id)) {
+                InMemoryData.Accounts.put(chat_id, 100d);
             }
 
-            switch (command[0]) {
-                case "/help":
-                    response = "You can use these commands: \n\r/accountId - get your Id; \n\r/balance - get your balance; \n\r/transfer Amount AccountId - transfer money to another user. AccoundId - accountId another user, Amount - amount for transfer";
-                    break;
-                case "/accountId":
-                    response = Long.toString(chat_id);
-                    break;
-                case "/balance":
-                    response = Double.toString(_accounts.get(chat_id));
-                    break;
-                case "/transfer":
-                    if (command.length != 3) {
-                        response = "Wrong input command";
-                    } else {
-                        double amount;
-                        try {
-                            amount = Double.parseDouble(command[1]);
-                        } catch (NumberFormatException e) {
-                            response = "Wrong amount format";
-                            break;
-                        }
+            ICommandExecuter executer = CommandExecuterFactory.GetExecuter(command.get(0));
 
-                        long other_id;
-                        try {
-                            other_id = Long.parseLong(command[2]);
-                        } catch (NumberFormatException e) {
-                            response = "Wrong accountId format";
-                            break;
-                        }
+            command.remove(0);
+            command.add(0, Long.toString(chat_id));
 
-                        if (amount > _accounts.get(chat_id)) {
-                            response = "No money, no honey";
-                        } else if (!_accounts.containsKey(other_id)) {
-                            response = "Unknown accountId";
-                        } else {
-                            _accounts.put(chat_id, _accounts.get(chat_id) - amount);
-                            _accounts.put(other_id, _accounts.get(other_id) + amount);
-                            response = "Done!";
-                        }
-                    }
-                    break;
-                default:
-                    response = "Unknow command";
-                    break;
-            }
+            executer.Execute((String[]) command.toArray());
 
             SendMessage message = (new SendMessage()).setChatId(chat_id).setText(response);
             try {
