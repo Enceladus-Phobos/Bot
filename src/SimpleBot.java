@@ -23,8 +23,8 @@ public class SimpleBot extends TelegramLongPollingBot {
 
             ICommandExecuter executer = CommandExecuterFactory.GetExecuter(command.get(0));
 
-            command.remove(0);
-            command.add(0, Long.toString(chat_id));
+            //command.remove(0);
+            //command.add(0, Long.toString(chat_id));
 
             executer.Execute((String[]) command.toArray());
 
@@ -40,10 +40,10 @@ public class SimpleBot extends TelegramLongPollingBot {
 
 
     public String getBotUsername() {
-        return "STBot";
+        return "Bot Buterbrod";
     }
 
     public String getBotToken() {
-        return "894165359:AAEfkD_nosyskcto6hmo9F0Dt_M78JFCz0s";
+        return "979329461:AAHt7Ii2unaGXsDLTPjBZFXhjrbxXYbiNYA";
     }
 }

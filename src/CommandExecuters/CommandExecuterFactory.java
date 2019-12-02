@@ -11,7 +11,7 @@ public class CommandExecuterFactory {
         Set<Class<? extends ICommandExecuter>> allClasses =
                 reflections.getSubTypesOf(ICommandExecuter.class);
 
-
+        String name = allClasses.iterator().next().getAnnotation(CommandName.class).value();
         switch (command) {
             case "/accountId":
                 return new GetAccountIdCommandExecuter();

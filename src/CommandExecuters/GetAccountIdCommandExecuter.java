@@ -1,5 +1,6 @@
 package CommandExecuters;
 
+@CommandName("/accountId")
 public class GetAccountIdCommandExecuter implements ICommandExecuter {
 
     @Override

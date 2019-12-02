@@ -3,8 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="23841d90-7f3a-4c0f-b934-80c17eb9ae79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lune3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lune3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/CommandExecuterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/CommandExecuterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetAccountIdCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetAccountIdCommandExecuter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetBalanceCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetBalanceCommandExecuter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/HelpCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/HelpCommandExecuter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/TransferCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/TransferCommandExecuter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/SimpleBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/SimpleBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/Tools.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/CommandExecuterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/CommandExecuterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/CommandName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/CommandName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/GetAccountIdCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/GetAccountIdCommandExecuter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/GetBalanceCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/GetBalanceCommandExecuter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/HelpCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/HelpCommandExecuter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/TransferCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/TransferCommandExecuter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SimpleBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimpleBot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -34,6 +46,11 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="CommandExecuters" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

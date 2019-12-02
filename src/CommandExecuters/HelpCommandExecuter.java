@@ -1,5 +1,6 @@
 package CommandExecuters;
 
+@CommandName("/help")
 public class HelpCommandExecuter implements ICommandExecuter {
 
     @Override
