@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23841d90-7f3a-4c0f-b934-80c17eb9ae79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_mysql_connector_java_8_0_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.17-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.6.1-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/CommandExecuter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lune3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lune3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/CommandExecuterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/CommandExecuterFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetAccountIdCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetAccountIdCommandExecuter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetBalanceCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/GetBalanceCommandExecuter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/HelpCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/HelpCommandExecuter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/ICommandExecuter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/TransferCommandExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/CommandExecuters/TransferCommandExecuter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lune3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lune3/SimpleBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/SimpleBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/CommandExecuterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/CommandExecuterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/GetAccountIdCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/GetAccountIdCommandExecuter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/GetBalanceCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/GetBalanceCommandExecuter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/HelpCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/HelpCommandExecuter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/ICommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/CommandExecuter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandExecuters/TransferCommandExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandExecuters/TransferCommandExecuter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lune3/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lune3/Models/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimpleBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimpleBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/User.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,8 +105,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="19" />
+          <line>8</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Models/User.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

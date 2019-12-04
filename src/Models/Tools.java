@@ -34,4 +34,9 @@ public class Tools {
 
         return connection;
     }
+
+    public static String getQuery(String from, String keyColumn, String key)
+    {
+        return  "SELECT * FROM kernel." + from +" WHERE " + keyColumn+" = " + key;
+    }
 }
