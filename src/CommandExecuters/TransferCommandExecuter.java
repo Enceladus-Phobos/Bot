@@ -3,7 +3,7 @@ package CommandExecuters;
 import Models.InMemoryData;
 
 @CommandName("/transfer")
-public class TransferCommandExecuter implements ICommandExecuter {
+public class TransferCommandExecuter implements CommandExecuter {
     @Override
     public String Execute(String[] args) {
 

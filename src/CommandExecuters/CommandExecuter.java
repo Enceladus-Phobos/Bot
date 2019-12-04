@@ -1,5 +1,5 @@
 package CommandExecuters;
 
-public interface ICommandExecuter {
+public interface CommandExecuter {
    String Execute(String[] args);
 }

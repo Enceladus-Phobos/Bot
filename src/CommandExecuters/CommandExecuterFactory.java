@@ -1,28 +1,29 @@
 package CommandExecuters;
 
 import org.reflections.Reflections;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 public class CommandExecuterFactory {
-    public static ICommandExecuter GetExecuter(String command)
+    public static CommandExecuter GetExecuter(String command)
     {
         Reflections reflections = new Reflections("CommandExecuters");
 
-        Set<Class<? extends ICommandExecuter>> allClasses =
-                reflections.getSubTypesOf(ICommandExecuter.class);
+        Set<Class<? extends CommandExecuter>> allClasses =
+                reflections.getSubTypesOf(CommandExecuter.class);
 
-        String name = allClasses.iterator().next().getAnnotation(CommandName.class).value();
-        switch (command) {
-            case "/accountId":
-                return new GetAccountIdCommandExecuter();
-            case "/balance":
-                return new GetBalanceCommandExecuter();
-            case "/transfer":
-                return new TransferCommandExecuter();
-            case "/help":
-            default:
-                return new HelpCommandExecuter();
-
+        for (Class<? extends CommandExecuter> commandExecuterClass:
+             allClasses ) {
+            if (commandExecuterClass.getAnnotation(CommandName.class).value() == command) {
+                try {
+                    return commandExecuterClass.getConstructor().newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
+
+        return new HelpCommandExecuter();
     }
 }

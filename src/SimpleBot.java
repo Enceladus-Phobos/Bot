@@ -1,7 +1,7 @@
 import java.util.*;
 
 import CommandExecuters.CommandExecuterFactory;
-import CommandExecuters.ICommandExecuter;
+import CommandExecuters.CommandExecuter;
 import Models.InMemoryData;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -21,7 +21,7 @@ public class SimpleBot extends TelegramLongPollingBot {
                 InMemoryData.Accounts.put(chat_id, 100d);
             }
 
-            ICommandExecuter executer = CommandExecuterFactory.GetExecuter(command.get(0));
+            CommandExecuter executer = CommandExecuterFactory.GetExecuter(command.get(0));
 
             //command.remove(0);
             //command.add(0, Long.toString(chat_id));
