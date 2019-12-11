@@ -1,75 +1,62 @@
 package Models;
 
-import javax.annotation.Nullable;
-import java.sql.Connection;
-import java.sql.ResultSet;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.HashMap;
 
 public class User {
     private static final String TabelName = "users";
 
-    private int Id;
+    private long Id;
     private String Login;
     private String Name;
     private int Role;
-    @Nullable
-    private int PersId;
 
-    private User(int id, String login, String name, int role, int persId) {
+    private User(long id, String login, String name, int role) {
         Id = id;
         Login = login;
         Name = name;
         Role = role;
-        PersId = persId;
     }
 
-    public static User getUser(int id){
-        User user = null;
-        try (Connection conn = Tools.getConnection()){
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery(Tools.getQuery(TabelName, "Id", Integer.toString(id)));
-            if(resultSet.next()){
-                var login = resultSet.getString("Login");
-                var name = resultSet.getString("Name");
-                var role = resultSet.getInt("Role");
-                var persId = resultSet.getInt("PersId");
+    public static User insertUser(String login, String password, String name) throws IOException, SQLException {
+        HashMap<String, Object> args = new HashMap<String, Object>();
+        args.put("Login", login);
+        args.put("Password", password);
+        args.put("Name", name);
+        var id = Tools.insert(TabelName, args);
+        return getUser(id);
+    }
 
-                user = new User(id, login, name, role, persId);
-            }
+    public static User getUser(long id) throws SQLException, IOException {
+        var resultSet = Tools.getResult(Tools.getSelectQuery(TabelName, "Id", Long.toString(id)));
+        if(resultSet.next()){
+            var login = resultSet.getString("Login");
+            var name = resultSet.getString("Name");
+            var role = resultSet.getInt("Role");
 
-        } catch (SQLException e) {
-            //TODO Сделать логирование ошибок соединения с базой
-        }finally {
-            return user;
+            return new User(id, login, name, role);
         }
+        return null;
     }
 
-    public static User getUser(String login, String password) {
-        User user = null;
-            try (Connection conn = Tools.getConnection()){
-                Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery(Tools.getQuery(TabelName, "Login", "'" + login + "'"));
-                if(resultSet.next()){
-                    var pass = resultSet.getString("password");
-                    if(!password.equals(pass))
-                        return null;
-                    var id = resultSet.getInt(1);
-                    var name = resultSet.getString("Name");
-                    var role = resultSet.getInt("Role");
-                    var persId = resultSet.getInt("PersId");
+    public static User getUser(String login, String password) throws IOException, SQLException {
+        var resultSet = Tools.getResult(Tools.getSelectQuery(TabelName, "Login", "'" + login + "'"));
+        if(resultSet.next()){
+            var pass = resultSet.getString("password");
+            if(!password.equals(pass))
+                return null;
+            var id = resultSet.getInt(1);
+            var name = resultSet.getString("Name");
+            var role = resultSet.getInt("Role");
+            var persId = resultSet.getInt("PersId");
 
-                    user = new User(id, login, name, role, persId);
-                }
-
-            } catch (SQLException e) {
-                //TODO Сделать логирование ошибок соединения с базой
-            }finally {
-                return user;
-            }
+            return new User(id, login, name, role);
+        }
+        return null;
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
@@ -83,9 +70,5 @@ public class User {
 
     public int getRole() {
         return Role;
-    }
-
-    public int getPersId() {
-        return PersId;
     }
 }

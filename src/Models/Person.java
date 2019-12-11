@@ -1,56 +1,68 @@
 package Models;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Person {
     private static final String TabelName = "persons";
     
-    private int Id;
+    private long Id;
     private String Name;
     private String History;
     private String Atributes;
     private String Ip;
+    private long UserId;
 
 
-    public static Person getPerson(int id){
-        Person person = null;
-        try (Connection conn = Tools.getConnection()){
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery(Tools.getQuery(TabelName, "Id", Integer.toString(id)));
-            if(resultSet.next()){
-                var name = resultSet.getString("Name");
-                var history = resultSet.getString("History");
-                var atributes = resultSet.getString("Atributes");
-                var ip = resultSet.getString("Ip");
-
-                person = new Person(id, name, history, atributes, ip);
-            }
-
-        } catch (SQLException e) {
-            //TODO Сделать логирование ошибок соединения с базой
-        }finally {
-            return person;
-        }
+    public static Person insertPerson(String name, long userId) throws IOException, SQLException {
+        HashMap<String, Object> args = new HashMap<String, Object>();
+        args.put("UserId", userId);
+        args.put("Name", name);
+        var id = Tools.insert(TabelName, args);
+        return getPerson(id);
     }
-    public static Person getPersonByUser(int userId){
-        User user = User.getUser(userId);
-        if (user != null && user.getPersId() != 0)
-            return getPerson(user.getPersId());
+
+    public static Person getPerson(long id) throws SQLException, IOException {
+        var resultSet = Tools.getResult(Tools.getSelectQuery(TabelName, "Id", Long.toString(id)));
+        if(resultSet.next()){
+            var name = resultSet.getString("Name");
+            var history = resultSet.getString("History");
+            var atributes = resultSet.getString("Atributes");
+            var ip = resultSet.getString("Ip");
+            var userId = resultSet.getLong("UserID");
+
+            return new Person(id, name, history, atributes, ip, userId);
+        }
         return null;
     }
+    public static ArrayList<Person> getPersonsByUser(long userId) throws SQLException, IOException{
+        var pers = new ArrayList<Person>();
+        var resultSet = Tools.getResult(Tools.getSelectQuery(TabelName, "UserId", Long.toString(userId)));
+        while (resultSet.next()){
+            var id = resultSet.getLong("Id");
+            var name = resultSet.getString("Name");
+            var history = resultSet.getString("History");
+            var atributes = resultSet.getString("Atributes");
+            var ip = resultSet.getString("Ip");
 
-    public Person(int id, String name, String history, String atribute, String ip) {
+            pers.add( new Person(id, name, history, atributes, ip, userId));
+        }
+        return pers;
+    }
+
+    public Person(long id, String name, String history, String atribute, String ip, long userId) {
         Id = id;
         Name = name;
         History = history;
         Atributes = atribute;
         Ip = ip;
+        UserId = userId;
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
@@ -68,5 +80,9 @@ public class Person {
 
     public String getIp() {
         return Ip;
+    }
+
+    public long getUserId() {
+        return UserId;
     }
 }
